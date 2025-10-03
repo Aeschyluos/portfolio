@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* base vars for light/dark */
+:root {
+  --bg: #faf6ee;
+  --fg: #0b0c0f;
+  --muted: #44403c;
+}
+.dark {
+  --bg: #0b0c0f;
+  --fg: #faf6ee;
+  --muted: #9b9b9b;
+}
+
+/* set color tokens used inline */
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* apply the pixel crisp if you later use pixel art */
+img.pixelated {
+  image-rendering: pixelated;
+}
+
+/* flicker keyframes fallback for non-tailwind usage */
+@keyframes flicker {
+  0% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  10% {
+    opacity: 0.5;
+    transform: scale(1.02);
+  }
+  20% {
+    opacity: 0.22;
+    transform: scale(0.98);
+  }
+  30% {
+    opacity: 0.7;
+    transform: scale(1.04);
+  }
+  40% {
+    opacity: 0.25;
+    transform: scale(0.99);
+  }
+  60% {
+    opacity: 0.5;
+    transform: scale(1.01);
+  }
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+}
+
+/* accessible reduce motion handling */
+@media (prefers-reduced-motion: reduce) {
+  .js-spot {
+    animation: none !important;
+  }
+}
