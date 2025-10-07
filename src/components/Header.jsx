@@ -95,9 +95,7 @@ export default function Header({ isScrolled }) {
                 href={`#${id}`}
                 key={id}
                 onClick={(e) => {
-                  // allow normal middle-click / ctrl+click to open in new tab
                   if (e.button === 0 && !e.metaKey && !e.ctrlKey) {
-                    // left click => intercept for smooth scroll
                     activateLink(e, id);
                   }
                 }}
@@ -106,12 +104,11 @@ export default function Header({ isScrolled }) {
                 tabIndex={0}
                 aria-current={isActive ? "true" : undefined}
                 className={`relative px-1 py-2 text-sm md:text-base text-white/90 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-accent rounded ${
-                  isActive ? "text-white" : ""
+                  isActive ? "text-white" : "text-black"
                 }`}
+                style={{ paddingLeft: "20px", paddingRight: "20px" }}
               >
                 <span className="relative z-10">{label}</span>
-
-                {/* animated underline */}
                 <span
                   className={`absolute left-0 right-0 -bottom-0.5 h-[2px] origin-left transform transition-transform duration-200 rounded ${
                     isActive ? "bg-accent scale-x-100" : "bg-white/60 scale-x-0"

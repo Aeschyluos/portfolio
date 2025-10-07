@@ -37,7 +37,6 @@ export default function ProjectCard({ project, onOpen }) {
       onKeyDown={handleKey}
       tabIndex={0}
       aria-labelledby={`proj-${project.id}-title`}
-      style={{ outline: "none" }}
     >
       {/* square visual */}
       <div
@@ -46,6 +45,7 @@ export default function ProjectCard({ project, onOpen }) {
           background: "rgba(255,255,255,0.02)",
           border: "1px solid rgba(255,255,255,0.04)",
           boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
+          borderRadius: "5%",
         }}
       >
         {project.img ? (
@@ -54,7 +54,9 @@ export default function ProjectCard({ project, onOpen }) {
             alt={project.title}
             loading="lazy"
             className="max-w-[84%] max-h-[84%] object-contain block"
-            style={{ filter: "grayscale(0.06) contrast(.9)", borderRadius: 8 }}
+            style={{
+              filter: "grayscale(0.06) contrast(.9)",
+            }}
           />
         ) : (
           <div className="text-white/40 text-sm">No image</div>

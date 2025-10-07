@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import Name from "./components/Name";
 import Header from "./components/Header";
 import Projects from "./pages/Projects";
+import Skills from "./pages/Skills";
+import AboutMe from "./pages/AboutMe";
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,17 +40,15 @@ export default function App() {
             <section id="projects" className="scroll-mt-[100px]">
               <Projects />
             </section>
-            <section id="resume" className="scroll-mt-[100px]">
+            {/* <section id="resume" className="scroll-mt-[100px]">
               {" "}
               ...{" "}
-            </section>
+            </section> */}
             <section id="skills" className="scroll-mt-[100px]">
-              {" "}
-              ...{" "}
+              <Skills />
             </section>
             <section id="about" className="scroll-mt-[100px]">
-              {" "}
-              ...{" "}
+              <AboutMe />
             </section>
           </main>
         </div>

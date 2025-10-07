@@ -5,20 +5,20 @@ import bitesLogo from "../assets/biteslogo.png";
 
 const SAMPLE = [
   {
-    id: "oasis",
+    id: "bites",
     title: "BiTEs",
-    short: "AR/VR solution to help deal with stress for office workers",
+    short: "Online food delivery application centralized in Binus",
     description: "Longer description here...",
-    tech: ["Unity", "XR"],
+    tech: "na",
     img: bitesLogo,
-    year: 2025,
+    year: 2024,
     live: "#",
     repo: "#",
   },
   {
-    id: "rolo",
-    title: "Rolo",
-    short: "Connecting users to local libraries and board game clubs",
+    id: "gothliat",
+    title: "GOTHLIAT",
+    short: "Digital store of reworked clothing",
     description: "Longer description here...",
     tech: ["React", "Node"],
     img: "/screenshots/rolo.jpg",
@@ -48,7 +48,10 @@ export default function Projects() {
         </header>
 
         {/* grid: 1 column mobile, 2 columns from md up */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
+        <div
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center"
+          style={{}}
+        >
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} onOpen={setOpen} />
           ))}
