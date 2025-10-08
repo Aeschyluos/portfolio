@@ -1,10 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+
+.font-geist {
+  font-family: "Geist", sans-serif;
+}
 
 /* base vars for light/dark */
 :root {
-  --bg: #faf6ee;
+  --bg: #f6eee0;
   --fg: #0b0c0f;
   --muted: #44403c;
 }
@@ -15,9 +20,15 @@
 }
 
 /* set color tokens used inline */
+html,
 body {
   background: var(--bg);
   color: var(--fg);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* apply the pixel crisp if you later use pixel art */

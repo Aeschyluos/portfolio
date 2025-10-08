@@ -22,6 +22,9 @@ module.exports = {
       animation: {
         flicker: "flicker 2.2s linear infinite",
       },
+      fontFamily: {
+        geist: ["'Geist'", "sans-serif"],
+      },
     },
   },
   plugins: [],
