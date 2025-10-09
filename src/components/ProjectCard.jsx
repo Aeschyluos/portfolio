@@ -31,7 +31,7 @@ export default function ProjectCard({ project, onOpen }) {
   return (
     <article
       ref={el}
-      className="project-tile group flex flex-col gap-6 cursor-pointer focus:outline-none w-[30%] sm:w-[40%] md:w-[30%]"
+      className="project-tile group flex flex-col gap-6 cursor-pointer focus:outline-none w-[20%] sm:w-[10%] md:w-[20%]"
       onClick={() => onOpen(project)}
       onKeyDown={handleKey}
       tabIndex={0}
@@ -73,7 +73,7 @@ export default function ProjectCard({ project, onOpen }) {
         <h3
           id={`proj-${project.id}-title`}
           className={
-            "text-sm md:text-base font-semibold text-white transition-all duration-400  " +
+            "text-sm md:text-base font-semibold text-fg font-geist transition-all duration-400  " +
             "group-hover:bold"
           }
         >
@@ -82,7 +82,7 @@ export default function ProjectCard({ project, onOpen }) {
         {project.year && (
           <div
             className={
-              "text-xs text-white/60 mt-1 transition-all duration-400  " +
+              "text-xs text-fg mt-1 transition-all duration-400  " +
               "group-hover:bold"
             }
           >

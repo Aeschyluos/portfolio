@@ -3,11 +3,6 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      colors: {
-        cream: "#FAF6EE",
-        darkbg: "#0b0c0f",
-        accent: "#8b2f6b",
-      },
       keyframes: {
         flicker: {
           "0%": { opacity: 0.15, transform: "scale(1)" },

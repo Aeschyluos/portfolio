@@ -1,57 +1,28 @@
-import React, { useRef, useState, useEffect } from "react";
-import Name from "./components/Name";
-import Header from "./components/Header";
-import Projects from "./pages/Projects";
-import Skills from "./pages/Skills";
-import AboutMe from "./pages/AboutMe";
+import React from "react";
+import LeftPanel from "./components/LeftPanel";
+import RightPanel from "./components/RightPanel";
 
 export default function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const scrollContainerRef = useRef(null);
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY || window.pageYOffset || 0;
-      setIsScrolled(scrollTop > 50);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollTop = scrollContainerRef.current?.scrollTop || 0;
-  //     setIsScrolled(scrollTop > 50);
-  //   };
-
-  //   const scrollEl = scrollContainerRef.current;
-  //   scrollEl?.addEventListener("scroll", handleScroll);
-  //   return () => scrollEl?.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   return (
-    <div className="min-h-screen transition-colors duration-300 bg-cream dark:bg-darkbg text-ink dark:text-cream">
-      <Header isScrolled={isScrolled} />
-      {/* Add top padding to prevent content from being hidden under the fixed header */}
-      <div className="pt-[100px]">
-        <div className="max-w-4xl mx-auto px-6 py-12">
-          <main className="mt-8">
-            <Name name="YOUR NAME" />
-            <section id="projects" className="scroll-mt-[100px]">
-              <Projects />
-            </section>
-            {/* <section id="resume" className="scroll-mt-[100px]">
-              {" "}
-              ...{" "}
-            </section> */}
-            <section id="skills" className="scroll-mt-[100px]">
-              <Skills />
-            </section>
-            <section id="about" className="scroll-mt-[100px]">
-              <AboutMe />
-            </section>
-          </main>
-        </div>
+    <div className="min-h-screen font-geist">
+      <div className="max-w-6xl mx-auto flex items-start justify-center gap-16 px-12">
+        {/* LEFT: keep it natural height (no nested h-screen) */}
+        <aside className="w-[420px] flex-shrink-0">
+          <div
+            className=" flex flex-col justify-start"
+            style={{ paddingTop: "var(--top-gap)" }}
+          >
+            <LeftPanel />
+          </div>
+        </aside>
+
+        {/* RIGHT: scrollable column sized by max-height in CSS (scroll-panel) */}
+        <main
+          className="w-[680px] flex-shrink-0 h-[calc(100vh-3rem)] overflow-y-auto no-scrollbar pb-24"
+          style={{ paddingTop: "var(--top-gap)" }}
+        >
+          <RightPanel />
+        </main>
       </div>
     </div>
   );

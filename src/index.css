@@ -3,20 +3,18 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
 
-.font-geist {
-  font-family: "Geist", sans-serif;
+:root {
+  --bg: #201e1d;
+  --fg: #c7c7c7;
+  --muted: #a1a1a1;
+
+  --top-gap: 48px; /* ← increase/decrease to taste */
 }
 
-/* base vars for light/dark */
-:root {
-  --bg: #f6eee0;
-  --fg: #0b0c0f;
-  --muted: #44403c;
-}
-.dark {
-  --bg: #0b0c0f;
-  --fg: #faf6ee;
-  --muted: #9b9b9b;
+.light {
+  --bg: #c8c8ca;
+  --fg: #282828;
+  --muted: #424040;
 }
 
 /* set color tokens used inline */
@@ -24,53 +22,36 @@ html,
 body {
   background: var(--bg);
   color: var(--fg);
-  height: 100%;
+  height: auto;
   width: 100%;
   margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* apply the pixel crisp if you later use pixel art */
-img.pixelated {
-  image-rendering: pixelated;
+/* make overall text slightly smaller for the whole site (reduces rem-based sizes) */
+body {
+  font-size: 13px;
 }
 
-/* flicker keyframes fallback for non-tailwind usage */
-@keyframes flicker {
-  0% {
-    opacity: 0.15;
-    transform: scale(1);
-  }
-  10% {
-    opacity: 0.5;
-    transform: scale(1.02);
-  }
-  20% {
-    opacity: 0.22;
-    transform: scale(0.98);
-  }
-  30% {
-    opacity: 0.7;
-    transform: scale(1.04);
-  }
-  40% {
-    opacity: 0.25;
-    transform: scale(0.99);
-  }
-  60% {
-    opacity: 0.5;
-    transform: scale(1.01);
-  }
-  100% {
-    opacity: 0.15;
-    transform: scale(1);
-  }
+/* hide scrollbar but keep scrolling */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* WebKit */
 }
 
-/* accessible reduce motion handling */
-@media (prefers-reduced-motion: reduce) {
-  .js-spot {
-    animation: none !important;
-  }
+.font-geist {
+  font-family: "Geist", sans-serif;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.page {
+  padding-top: var(--top-gap);
 }

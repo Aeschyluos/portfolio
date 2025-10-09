@@ -1,10 +1,9 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-export default function Name() {
+export default function Name({ inputText }) {
   // text to render - each char will have its own animation
-  const text = "KHARON";
-  const chars = text.split("");
+  const chars = inputText.split("");
 
   // refs for each character element
   const anchorRefs = useRef([]);
@@ -27,64 +26,57 @@ export default function Name() {
     useSpring(y, { stiffness: 120, damping: 12 })
   );
 
-  useEffect(
-    () => {
-      function onPointerMove(e) {
-        const hi = hoveredIndexRef.current;
+  useEffect(() => {
+    function onPointerMove(e) {
+      const hi = hoveredIndexRef.current;
 
-        // if nothing hovered, reset all
-        if (hi === -1 || !anchorRefs.current[hi]) {
-          for (let i = 0; i < xValues.length; i++) {
-            xValues[i].set(0);
-            yValues[i].set(0);
-          }
-          return;
+      // if nothing hovered, reset all
+      if (hi === -1 || !anchorRefs.current[hi]) {
+        for (let i = 0; i < xValues.length; i++) {
+          xValues[i].set(0);
+          yValues[i].set(0);
         }
-
-        const px = (e.touches && e.touches[0]?.clientX) ?? e.clientX;
-        const py = (e.touches && e.touches[0]?.clientY) ?? e.clientY;
-
-        const rect = anchorRefs.current[hi].getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-
-        const dx = px - cx;
-        const dy = py - cy;
-        const dist = Math.hypot(dx, dy);
-
-        const threshold = Math.min(window.innerWidth, 380);
-        const maxShift = 26;
-
-        if (dist < threshold) {
-          const strength = 1 - dist / threshold;
-          const nx = dx / (dist || 1);
-          const ny = dy / (dist || 1);
-          xValues[hi].set(-nx * maxShift * strength);
-          yValues[hi].set(-ny * maxShift * strength * 0.5);
-        } else {
-          xValues[hi].set(0);
-          yValues[hi].set(0);
-        }
+        return;
       }
 
-      document.addEventListener("mousemove", onPointerMove, { passive: true });
-      document.addEventListener("touchmove", onPointerMove, { passive: true });
+      const px = (e.touches && e.touches[0]?.clientX) ?? e.clientX;
+      const py = (e.touches && e.touches[0]?.clientY) ?? e.clientY;
 
-      return () => {
-        document.removeEventListener("mousemove", onPointerMove);
-        document.removeEventListener("touchmove", onPointerMove);
-      };
-      // We intentionally don't include xValues/yValues in deps - they are stable across renders
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    },
-    [
-      /* run once */
-    ]
-  );
+      const rect = anchorRefs.current[hi].getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      const dx = px - cx;
+      const dy = py - cy;
+      const dist = Math.hypot(dx, dy);
+
+      const threshold = Math.min(window.innerWidth, 380);
+      const maxShift = 12;
+
+      if (dist < threshold) {
+        const strength = 1 - dist / threshold;
+        const nx = dx / (dist || 1);
+        const ny = dy / (dist || 1);
+        xValues[hi].set(-nx * maxShift * strength);
+        yValues[hi].set(-ny * maxShift * strength * 0.3);
+      } else {
+        xValues[hi].set(0);
+        yValues[hi].set(0);
+      }
+    }
+
+    document.addEventListener("mousemove", onPointerMove, { passive: true });
+    document.addEventListener("touchmove", onPointerMove, { passive: true });
+
+    return () => {
+      document.removeEventListener("mousemove", onPointerMove);
+      document.removeEventListener("touchmove", onPointerMove);
+    };
+  }, []);
 
   return (
-    <section className="relative h-[56vh] sm:h-[48vh] flex items-center justify-center overflow-hidden select-none">
-      <h1 className="w-full text-center font-extrabold leading-[0.9] tracking-tight text-neutral-600 dark:text-neutral-400">
+    <section className="relative flex items-center justify-center overflow-hidden select-none">
+      <h1 className="text-center font-extrabold leading-[0.9] tracking-tight">
         {chars.map((ch, i) => (
           <span
             key={i}
@@ -102,8 +94,6 @@ export default function Name() {
                 x: springX[i],
                 y: springY[i],
                 display: "inline-block",
-                padding: "0.25rem 0.4rem",
-                marginRight: "-0.125rem",
               }}
             >
               {ch}
