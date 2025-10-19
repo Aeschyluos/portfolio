@@ -29,34 +29,34 @@ export default function ProjectCard({ project, onOpen }) {
         aria-pressed="false"
       >
         <div className="flex-1 min-w-0">
+          {/* container that does the truncation for the whole inline row */}
           <div
             className="truncate"
             title={`${project.title}${
               project.short ? " — " + project.short : ""
             }`}
             id={`proj-${project.id}-title`}
+            style={{ display: "block" }}
           >
-            <span
-              className="font-semibold text-white"
-              style={{
-                marginRight: "1rem",
-              }}
+            <h4
+              className="inline font-semibold align-middle m-0"
+              style={{ margin: 0, marginRight: "2rem" }}
             >
               {project.title}
-            </span>
+            </h4>
 
-            <span className="text-muted">{project.short}</span>
+            <span className="inline text-xs text-fg/70 ml-3 align-middle">
+              {project.short}
+            </span>
           </div>
         </div>
 
-        {project.year && (
-          <div
-            className="flex-shrink-0 text-xs text-fg/80 ml-4 self-center whitespace-nowrap"
-            aria-hidden="true"
-          >
-            {project.year}
-          </div>
-        )}
+        <div
+          className="flex-shrink-0 text-xs text-fg/80 ml-4 self-center whitespace-nowrap"
+          aria-hidden="true"
+        >
+          {project.year}
+        </div>
       </div>
     </article>
   );

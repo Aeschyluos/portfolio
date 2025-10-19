@@ -30,18 +30,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* make overall text slightly smaller for the whole site (reduces rem-based sizes) */
 body {
   font-size: 13px;
 }
 
-/* hide scrollbar but keep scrolling */
 .no-scrollbar {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
 .no-scrollbar::-webkit-scrollbar {
-  display: none; /* WebKit */
+  display: none;
 }
 
 .font-geist {

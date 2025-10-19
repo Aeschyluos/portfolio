@@ -38,7 +38,7 @@ export default function RightPanel() {
       <div className="w-full px-8 py-6 lg:py-8">
         <div className="max-w-full">
           <section id="about" className="mb-10">
-            <h2 className="text-lg font-semibold text-white">About</h2>
+            <h2 className="text-lg font-semibold">About</h2>
             <p className="mt-3 text-xs text-muted leading-relaxed">
               I’m an aspiring software developer with a passion for exploring
               the vast possibilities of programming...
@@ -51,8 +51,13 @@ export default function RightPanel() {
             </p>
           </section>
 
-          <section id="projects" className="mb-10">
-            <h2 className="text-lg font-semibold text-white">Projects</h2>
+          <section
+            id="projects"
+            style={{
+              marginTop: "5rem",
+            }}
+          >
+            <h2 className="text-lg font-semibold">Projects</h2>
             <p className="mt-3 text-xs text-muted flex items-center gap-2">
               Below are a few projects — scroll to see more.
             </p>
@@ -68,14 +73,16 @@ export default function RightPanel() {
 
           <ProjectModal project={open} onClose={() => setOpen(null)} />
 
-          <section className="mb-40">
-            <h4 className="text-sm font-semibold text-white">Experience</h4>
+          <section
+            style={{
+              marginTop: "5rem",
+            }}
+          >
+            <h4 className="text-sm font-semibold">Experience</h4>
             <div className="mt-4 space-y-4">
               {Array.from({ length: 6 }).map((_, idx) => (
                 <article key={idx} className="p-4 bg-gray-900/30 rounded">
-                  <h5 className="font-semibold text-sm text-white">
-                    Role {idx + 1}
-                  </h5>
+                  <h5 className="font-semibold text-sm ">Role {idx + 1}</h5>
                   <p className="mt-1 text-xs text-muted">
                     Description for this role to demonstrate scrolling.
                   </p>
