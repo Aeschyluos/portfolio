@@ -1,26 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 export default function ProjectCard({ project, onOpen }) {
-  const el = useRef(null);
-
-  useEffect(() => {
-    const node = el.current;
-    if (!node) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            node.classList.add("is-visible");
-            io.unobserve(node);
-          }
-        });
-      },
-      { threshold: 0.06 }
-    );
-    io.observe(node);
-    return () => io.disconnect();
-  }, []);
-
   function handleKey(e) {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -30,61 +10,49 @@ export default function ProjectCard({ project, onOpen }) {
 
   return (
     <article
-      ref={el}
-      className="project-tile group flex flex-col gap-6 cursor-pointer focus:outline-none w-[20%] sm:w-[10%] md:w-[20%]"
+      className="project-tile group cursor-pointer focus:outline-none w-full sm:w-[80%] md:w-[60%] font-geist"
       onClick={() => onOpen(project)}
       onKeyDown={handleKey}
       tabIndex={0}
       aria-labelledby={`proj-${project.id}-title`}
-      style={{ margin: "20px" }}
+      style={{
+        marginBottom: ".8rem",
+      }}
     >
-      {/* rectangle visual */}
       <div
-        className="w-full aspect-[4/3] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300"
-        style={{
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(255,255,255,0.04)",
-          boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
-          borderRadius: "5%",
-        }}
+        className={
+          // note the space before hover: -> prevents concatenation bug
+          "flex items-center justify-between gap-4 p-4 rounded-xl " +
+          "hover:bg-[rgba(199,199,199,0.08)] group-hover:bg-[rgba(199,199,199,0.08)]"
+        }
+        role="button"
+        aria-pressed="false"
       >
-        {project.img ? (
-          <img
-            src={project.img}
-            alt={project.title}
-            loading="lazy"
-            className={
-              "max-w-[84%] max-h-[84%] object-contain block transform transition duration-500 ease-out " +
-              // scale up and slightly grayscale on hover of the whole card (group)
-              "group-hover:scale-105 group-hover:[filter:grayscale(.35)]"
-            }
-            style={{
-              // keep transform origin in the center so scaling feels natural
-              transformOrigin: "center",
-            }}
-          />
-        ) : (
-          <div className="text-white/40 text-sm">No image</div>
-        )}
-      </div>
+        <div className="flex-1 min-w-0">
+          <div
+            className="truncate"
+            title={`${project.title}${
+              project.short ? " — " + project.short : ""
+            }`}
+            id={`proj-${project.id}-title`}
+          >
+            <span
+              className="font-semibold text-white"
+              style={{
+                marginRight: "1rem",
+              }}
+            >
+              {project.title}
+            </span>
 
-      {/* title below */}
-      <div className="px-0">
-        <h3
-          id={`proj-${project.id}-title`}
-          className={
-            "text-sm md:text-base font-semibold text-fg font-geist transition-all duration-400  " +
-            "group-hover:bold"
-          }
-        >
-          {project.short}
-        </h3>
+            <span className="text-muted">{project.short}</span>
+          </div>
+        </div>
+
         {project.year && (
           <div
-            className={
-              "text-xs text-fg mt-1 transition-all duration-400  " +
-              "group-hover:bold"
-            }
+            className="flex-shrink-0 text-xs text-fg/80 ml-4 self-center whitespace-nowrap"
+            aria-hidden="true"
           >
             {project.year}
           </div>

@@ -35,7 +35,6 @@ export default function RightPanel() {
 
   return (
     <div className="bg-transparent">
-      {/* smaller inner padding — the top gap is handled by .page now */}
       <div className="w-full px-8 py-6 lg:py-8">
         <div className="max-w-full">
           <section id="about" className="mb-10">
@@ -53,7 +52,7 @@ export default function RightPanel() {
           </section>
 
           <section id="projects" className="mb-10">
-            <h3 className="text-sm font-semibold text-white">Projects</h3>
+            <h2 className="text-lg font-semibold text-white">Projects</h2>
             <p className="mt-3 text-xs text-muted flex items-center gap-2">
               Below are a few projects — scroll to see more.
             </p>
