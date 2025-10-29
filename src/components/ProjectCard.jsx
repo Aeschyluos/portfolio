@@ -45,7 +45,7 @@ export default function ProjectCard({ project, onOpen }) {
               {project.title}
             </h4>
 
-            <span className="inline text-xs text-fg/70 ml-3 align-middle">
+            <span className="inline text-xs text-muted ml-3 align-middle">
               {project.short}
             </span>
           </div>

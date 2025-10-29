@@ -43,33 +43,70 @@ export default function LeftPanel() {
         </nav>
 
         <div className="mt-10 flex items-center gap-3">
-          <IconButton
-            onClick={() =>
-              window.open(githubLink, "_blank", "noopener,noreferrer")
-            }
+          <a
+            href={githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block p-0"
           >
             <img
               src={GithubIcon}
               alt="GitHub"
-              className="w-1/4 h-1/4 opacity-70"
+              style={{
+                width: "32px",
+                height: "32px",
+                marginRight: "1rem",
+                maxWidth: "none",
+                display: "block",
+                filter: "invert(100%) brightness(200%)",
+              }}
+              className="object-contain hover:cursor-pointer hover:scale-105 text-zinc-400"
             />
-          </IconButton>
+          </a>
 
-          <IconButton
-            onClick={() => (window.location.href = `mailto:${email}`)}
+          <a
+            href={`mailto:${email}`}
+            aria-label="Send email"
+            className="inline-block p-0"
           >
             <img
               src={EmailIcon}
               alt="Email"
-              className="w-1/4 h-1/4 opacity-70"
+              style={{
+                width: "32px",
+                height: "32px",
+                marginRight: "1rem",
+                maxWidth: "none",
+                display: "block",
+                filter: "invert(100%) brightness(200%)",
+              }}
+              className="object-contain hover:cursor-pointer hover:scale-105 "
             />
-          </IconButton>
+          </a>
 
-          <IconButton
-            onClick={() => window.open(resume, "_blank", "noopener,noreferrer")}
+          <a
+            href={resume || "#"}
+            target={resume ? "_blank" : undefined}
+            rel={resume ? "noopener noreferrer" : undefined}
+            aria-label="Open resume"
+            className="inline-block p-0"
           >
-            <img src={CVIcon} alt="Resume" className="w-1/4 h-1/4 opacity-70" />
-          </IconButton>
+            <img
+              src={CVIcon}
+              alt="Resume"
+              width={24}
+              height={24}
+              style={{
+                width: "32px",
+                height: "32px",
+                marginRight: "1rem",
+                maxWidth: "none",
+                display: "block",
+                filter: "invert(100%) brightness(200%)",
+              }}
+              className="object-contain hover:cursor-pointer hover:scale-105 "
+            />
+          </a>
         </div>
       </div>
     </div>

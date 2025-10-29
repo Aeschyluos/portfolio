@@ -6,24 +6,35 @@ import bitesLogo from "../assets/biteslogo.png";
 
 const PROJECTS = [
   {
+    id: "gothliat",
+    title: "GOTHLIAT",
+    short: "Digital store of reworked clothing",
+    description: "Longer description here...",
+    tech: ["React", "Node"],
+    img: "na",
+    year: 2024,
+    live: "#",
+    repo: "#",
+  },
+  {
     id: "bites",
     title: "BiTEs",
     short: "Online food delivery application centralized in Binus",
     description: "Longer description here...",
     tech: "na",
     img: bitesLogo,
-    year: 2024,
+    year: 2023,
     live: "#",
     repo: "#",
   },
   {
-    id: "gothliat",
-    title: "GOTHLIAT",
-    short: "Digital store of reworked clothing",
+    id: "grups",
+    title: "Grups",
+    short: "Social platform for college students in Indonesia",
     description: "Longer description here...",
-    tech: ["React", "Node"],
-    img: "/screenshots/rolo.jpg",
-    year: 2024,
+    tech: ["React", "Node", "Material UI"],
+    img: "na",
+    year: 2022,
     live: "#",
     repo: "#",
   },
@@ -58,9 +69,6 @@ export default function RightPanel() {
             }}
           >
             <h2 className="text-lg font-semibold">Projects</h2>
-            <p className="mt-3 text-xs text-muted flex items-center gap-2">
-              Below are a few projects — scroll to see more.
-            </p>
 
             <div className="mt-6 flex flex-wrap justify-start ">
               {/* <FiChevronLeft size="2rem" /> */}
@@ -78,16 +86,38 @@ export default function RightPanel() {
               marginTop: "5rem",
             }}
           >
-            <h4 className="text-sm font-semibold">Experience</h4>
-            <div className="mt-4 space-y-4">
-              {Array.from({ length: 6 }).map((_, idx) => (
-                <article key={idx} className="p-4 bg-gray-900/30 rounded">
-                  <h5 className="font-semibold text-sm ">Role {idx + 1}</h5>
-                  <p className="mt-1 text-xs text-muted">
-                    Description for this role to demonstrate scrolling.
-                  </p>
-                </article>
-              ))}
+            <h2 className="text-lg font-semibold">Skills</h2>
+            <div className="mt-4 space-y-4 ">
+              <article className="p-4 bg-gray-900/30 rounded">
+                <h5 className="font-semibold font-geist text-sm ">Something</h5>
+                <p className="mt-1 text-xs text-muted">
+                  Description for this role to demonstrate scrolling.
+                </p>
+              </article>
+              <article className="p-4 bg-gray-900/30 rounded">
+                <h5 className="font-semibold text-sm ">Something</h5>
+                <p className="mt-1 text-xs text-muted">
+                  Description for this role to demonstrate scrolling.
+                </p>
+              </article>
+              <article className="p-4 bg-gray-900/30 rounded">
+                <h5 className="font-semibold text-sm ">Something</h5>
+                <p className="mt-1 text-xs text-muted">
+                  Description for this role to demonstrate scrolling.
+                </p>
+              </article>
+              <article className="p-4 bg-gray-900/30 rounded">
+                <h5 className="font-semibold text-sm ">Something</h5>
+                <p className="mt-1 text-xs text-muted">
+                  Description for this role to demonstrate scrolling.
+                </p>
+              </article>
+              <article className="p-4 bg-gray-900/30 rounded">
+                <h5 className="font-semibold text-sm ">Something</h5>
+                <p className="mt-1 text-xs text-muted">
+                  Description for this role to demonstrate scrolling.
+                </p>
+              </article>
             </div>
           </section>
         </div>
