@@ -5,10 +5,10 @@
 
 :root {
   --bg: #201e1d;
-  --fg: #c7c7c7;
+  --fg: #eae0e0;
   --muted: #a1a1a1;
 
-  --top-gap: 48px; /* ← increase/decrease to taste */
+  --top-gap: 48px;
 }
 
 .light {
@@ -17,7 +17,6 @@
   --muted: #424040;
 }
 
-/* set color tokens used inline */
 html,
 body {
   background: var(--bg);
@@ -49,6 +48,10 @@ body {
 
 .text-muted {
   color: var(--muted);
+}
+
+.text-fg {
+  color: var(--fg);
 }
 
 .page {

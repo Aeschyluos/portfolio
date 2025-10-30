@@ -14,18 +14,18 @@ const PROJECTS = [
     img: "na",
     year: 2024,
     live: "#",
-    repo: "#",
+    repo: "https://github.com/Aeschyluos/catalog",
   },
   {
     id: "bites",
     title: "BiTEs",
     short: "Online food delivery application centralized in Binus",
     description: "Longer description here...",
-    tech: "na",
+    tech: ["Figma", "Canva"],
     img: bitesLogo,
     year: 2023,
     live: "#",
-    repo: "#",
+    repo: "na",
   },
   {
     id: "grups",
@@ -36,58 +36,108 @@ const PROJECTS = [
     img: "na",
     year: 2022,
     live: "#",
-    repo: "#",
+    repo: "na",
   },
 ];
 
 export default function RightPanel() {
   const [projects] = useState(PROJECTS);
-  const [open, setOpen] = useState(null);
 
   return (
     <div className="bg-transparent">
-      <div className="w-full px-8 py-6 lg:py-8">
+      <div
+        className="w-full px-8 py-6 lg:py-8"
+        style={{
+          marginBottom: "30rem",
+          marginTop: "3rem",
+        }}
+      >
         <div className="max-w-full">
-          <section id="about" className="mb-10">
-            <h2 className="text-lg font-semibold">About</h2>
-            <p className="mt-3 text-xs text-muted leading-relaxed">
+          <section
+            id="about"
+            style={{
+              marginBottom: "7rem",
+              scrollMarginTop: "7rem",
+            }}
+          >
+            <h2 className="text-lg font-semibold" style={{ marginBottom: "0" }}>
+              About
+            </h2>
+            <hr
+              style={{
+                opacity: "0.4",
+              }}
+            ></hr>
+            <p
+              className="text-muted leading-relaxed"
+              style={{ marginBottom: "2rem" }}
+            >
               I'm a Computer Science student in my 5th semester at BINUS
               University. I started coding when I was 16, making small games and
-              websites.
+              websites. From then on, I never stopped. I've grown from small
+              passion projects into building full-stack and backend systems.
+              Modeling and optimizing data with MongoDB and MySQL, and packaging
+              with Docker for deployment.
             </p>
 
-            <p className="mt-4 text-xs text-muted leading-relaxed">
-              My experience spans from creating virtual assistants and VR
-              applications to developing shaders and procedurally generated
-              visuals.
+            <p className="text-muted leading-relaxed">
+              I’m comfortable with Python, JavaScript, C++, and C#, and I enjoy
+              exploring new tools whenever a problem demands them. I’m driven by
+              building clean solutions to problems and eager to contribute that
+              drive and experience in internships and collaborative projects.
             </p>
           </section>
 
           <section
             id="projects"
             style={{
-              marginTop: "5rem",
+              marginBottom: "7rem",
+              scrollMarginTop: "7rem",
             }}
           >
-            <h2 className="text-lg font-semibold">Projects</h2>
-
-            <div className="mt-6 flex flex-wrap justify-start ">
-              {/* <FiChevronLeft size="2rem" /> */}
+            <h2
+              className="text-lg font-semibold"
+              style={{
+                marginBottom: "0",
+              }}
+            >
+              Projects
+            </h2>
+            <hr
+              style={{
+                opacity: "0.4",
+              }}
+            ></hr>
+            <div
+              className="mt-6 flex flex-wrap justify-start "
+              style={{ marginTop: "1rem" }}
+            >
               {projects.map((p) => (
-                <ProjectCard key={p.id} project={p} onClick={setOpen} />
+                <ProjectCard key={p.id} project={p} />
               ))}
-              {/* <FiChevronRight size="2rem" /> */}
             </div>
           </section>
 
-          <ProjectModal project={open} onClose={() => setOpen(null)} />
-
           <section
+            id="skills"
             style={{
-              marginTop: "5rem",
+              marginBottom: "7rem",
+              scrollMarginTop: "7rem",
             }}
           >
-            <h2 className="text-lg font-semibold">Tech Stack</h2>
+            <h2
+              className="text-lg font-semibold"
+              style={{
+                marginBottom: "0",
+              }}
+            >
+              Skills
+            </h2>
+            <hr
+              style={{
+                opacity: "0.4",
+              }}
+            ></hr>
             <div className="mt-4 space-y-4 ">
               <p className="font-semibold font-geist text-sm ">Something</p>
               <p className="mt-1 text-xs text-muted">

@@ -1,14 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Name from "./Name";
 import GithubIcon from "../assets/GithubIcon.png";
 import EmailIcon from "../assets/EmailIcon.png";
 import CVIcon from "../assets/CVIcon.png";
-import IconButton from "./IconButton";
+import LinkedinLogo from "../assets/LinkedinLogo.jpg";
 
 export default function LeftPanel() {
+  const [activeSection, setActiveSection] = useState("about");
+  const [cvHovered, setCvHovered] = useState(false);
   const githubLink = "https://github.com/aeschyluos";
   const email = "kharonpratama@gmail.com";
   const resume = "";
+
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "projects", label: "Projects" },
+    { id: "skills", label: "Skills" },
+  ];
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px 0px -66% 0px",
+      threshold: 0.1,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <div className="relative px-6 py-8 w-full rounded-sm">
@@ -19,26 +62,55 @@ export default function LeftPanel() {
           <Name inputText="PRATAMA" />
         </h1>
 
-        <p className="text-xs font-semibold">Computer Science Student</p>
-        <p className="text-xs max-w-xs">
-          With a deep passion for programming and a diverse portfolio of
-          innovative and self-driven projects.
+        <p
+          className="text-xs text-muted"
+          style={{
+            marginBottom: "2rem",
+          }}
+        >
+          Looking for internships.
         </p>
 
-        <nav className="mt-8">
-          <ul className="space-y-2 text-xs">
-            <li className="flex items-center gap-3">
-              <span className="w-3 h-3 rounded-full bg-[#0000]" />
-              <span>About</span>
-            </li>
-            <li className="flex items-center gap-3 text-gray-400">
-              <span className="w-3 h-3 rounded-full bg-white/20" />
-              <span>Projects</span>
-            </li>
-            <li className="flex items-center gap-3 text-gray-400">
-              <span className="w-3 h-3 rounded-full bg-white/20" />
-              <span>Experience</span>
-            </li>
+        <nav
+          style={{
+            marginBottom: "5rem",
+          }}
+        >
+          <ul>
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <li
+                  key={item.id}
+                  className="flex items-center gap-3 cursor-pointer group"
+                  onClick={() => scrollToSection(item.id)}
+                  style={{ marginBottom: ".8rem" }}
+                >
+                  <span
+                    style={{
+                      width: isActive ? "14px" : "10px",
+                      height: isActive ? "14px" : "10px",
+                      backgroundColor: isActive
+                        ? "white"
+                        : "rgba(255, 255, 255, 0.2)",
+                      borderRadius: "50%",
+                      transition: "all 0.3s ease",
+                      marginRight: "1rem",
+                    }}
+                    className="group-hover:opacity-60"
+                  />
+                  <span
+                    className="font-geist transition-all duration-300"
+                    style={{
+                      color: isActive ? "white" : "rgba(156, 163, 175, 1)",
+                      fontWeight: isActive ? "600" : "400",
+                    }}
+                  >
+                    {item.label}
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -55,7 +127,7 @@ export default function LeftPanel() {
               style={{
                 width: "32px",
                 height: "32px",
-                marginRight: "1rem",
+                marginRight: "2rem",
                 maxWidth: "none",
                 display: "block",
                 filter: "invert(100%) brightness(200%)",
@@ -75,7 +147,7 @@ export default function LeftPanel() {
               style={{
                 width: "32px",
                 height: "32px",
-                marginRight: "1rem",
+                marginRight: "2rem",
                 maxWidth: "none",
                 display: "block",
                 filter: "invert(100%) brightness(200%)",
@@ -85,27 +157,26 @@ export default function LeftPanel() {
           </a>
 
           <a
-            href={resume || "#"}
-            target={resume ? "_blank" : undefined}
-            rel={resume ? "noopener noreferrer" : undefined}
-            aria-label="Open resume"
-            className="inline-block p-0"
+            href={resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View CV"
+            onMouseEnter={() => setCvHovered(true)}
+            onMouseLeave={() => setCvHovered(false)}
+            style={{
+              border: "1px solid rgba(156, 163, 175, 0.5)",
+              padding: "10px 16px",
+              marginTop: "10px",
+              borderRadius: "4px",
+              fontSize: "12px",
+              color: cvHovered ? "black" : "var(--fg)",
+              backgroundColor: cvHovered ? "white" : "transparent",
+              textDecoration: "none",
+              transition: "all 0.5s ease",
+              fontWeight: "500",
+            }}
           >
-            <img
-              src={CVIcon}
-              alt="Resume"
-              width={24}
-              height={24}
-              style={{
-                width: "32px",
-                height: "32px",
-                marginRight: "1rem",
-                maxWidth: "none",
-                display: "block",
-                filter: "invert(100%) brightness(200%)",
-              }}
-              className="object-contain hover:cursor-pointer hover:scale-105 "
-            />
+            VIEW CV
           </a>
         </div>
       </div>
