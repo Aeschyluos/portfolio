@@ -51,8 +51,9 @@ export default function RightPanel() {
           <section id="about" className="mb-10">
             <h2 className="text-lg font-semibold">About</h2>
             <p className="mt-3 text-xs text-muted leading-relaxed">
-              I’m an aspiring software developer with a passion for exploring
-              the vast possibilities of programming...
+              I'm a Computer Science student in my 5th semester at BINUS
+              University. I started coding when I was 16, making small games and
+              websites.
             </p>
 
             <p className="mt-4 text-xs text-muted leading-relaxed">
@@ -86,38 +87,12 @@ export default function RightPanel() {
               marginTop: "5rem",
             }}
           >
-            <h2 className="text-lg font-semibold">Skills</h2>
+            <h2 className="text-lg font-semibold">Tech Stack</h2>
             <div className="mt-4 space-y-4 ">
-              <article className="p-4 bg-gray-900/30 rounded">
-                <h5 className="font-semibold font-geist text-sm ">Something</h5>
-                <p className="mt-1 text-xs text-muted">
-                  Description for this role to demonstrate scrolling.
-                </p>
-              </article>
-              <article className="p-4 bg-gray-900/30 rounded">
-                <h5 className="font-semibold text-sm ">Something</h5>
-                <p className="mt-1 text-xs text-muted">
-                  Description for this role to demonstrate scrolling.
-                </p>
-              </article>
-              <article className="p-4 bg-gray-900/30 rounded">
-                <h5 className="font-semibold text-sm ">Something</h5>
-                <p className="mt-1 text-xs text-muted">
-                  Description for this role to demonstrate scrolling.
-                </p>
-              </article>
-              <article className="p-4 bg-gray-900/30 rounded">
-                <h5 className="font-semibold text-sm ">Something</h5>
-                <p className="mt-1 text-xs text-muted">
-                  Description for this role to demonstrate scrolling.
-                </p>
-              </article>
-              <article className="p-4 bg-gray-900/30 rounded">
-                <h5 className="font-semibold text-sm ">Something</h5>
-                <p className="mt-1 text-xs text-muted">
-                  Description for this role to demonstrate scrolling.
-                </p>
-              </article>
+              <p className="font-semibold font-geist text-sm ">Something</p>
+              <p className="mt-1 text-xs text-muted">
+                Description for this role to demonstrate scrolling.
+              </p>
             </div>
           </section>
         </div>
