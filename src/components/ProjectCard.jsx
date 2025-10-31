@@ -61,7 +61,7 @@ export default function ProjectCard({ project }) {
           <div
             style={{
               marginTop: "1.5rem",
-              paddingTop: "1.5rem",
+              paddingTop: "0.7rem",
               borderTop: "1px solid rgba(156, 163, 175, 0.2)",
             }}
           >
@@ -76,7 +76,7 @@ export default function ProjectCard({ project }) {
                     project.tech.map((tech, i) => (
                       <span
                         key={i}
-                        className="text-xs px-2 py-1 rounded"
+                        className="text-fg"
                         style={{
                           backgroundColor: "rgba(156, 163, 175, 0.1)",
                           color: "rgba(207, 207, 207, 1)",
@@ -88,7 +88,7 @@ export default function ProjectCard({ project }) {
                     ))
                   ) : (
                     <span
-                      className="text-xs px-2 py-1 rounded"
+                      className="text-fg"
                       style={{
                         backgroundColor: "rgba(156, 163, 175, 0.1)",
                         color: "rgba(207, 207, 207, 1)",
@@ -176,7 +176,6 @@ export default function ProjectCard({ project }) {
                       padding: "6px 12px",
                       borderRadius: "4px",
                       fontSize: "11px",
-                      color: "rgba(156, 163, 175, 1)",
                       textDecoration: "none",
                       transition: "all 0.3s ease",
                     }}
@@ -186,10 +185,11 @@ export default function ProjectCard({ project }) {
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.style.color = "rgba(156, 163, 175, 1)";
+                      e.currentTarget.style.color = "var(--fg)";
                     }}
+                    className="font-geist text-fg"
                   >
-                    View Repo
+                    VIEW REPO
                   </a>
                 )}
             </div>

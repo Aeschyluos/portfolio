@@ -9,8 +9,9 @@ const PROJECTS = [
     id: "gothliat",
     title: "GOTHLIAT",
     short: "Digital store of reworked clothing",
-    description: "Longer description here...",
-    tech: ["React", "Node"],
+    description:
+      "An online store that modify thrift clothing into unique pieces. I built the product catalog and individual product pages with a complete checkout process, and I designed and implemented a backed inventory system.",
+    tech: ["React", "Material UI", "Node.js", "Express", "MongoDB"],
     img: "na",
     year: 2024,
     live: "#",
@@ -20,24 +21,25 @@ const PROJECTS = [
     id: "bites",
     title: "BiTEs",
     short: "Online food delivery application centralized in Binus",
-    description: "Longer description here...",
-    tech: ["Figma", "Canva"],
+    description:
+      "A Figma prototype for an in-campus/near-campus short-distance food delivery app targeting BINUS students.",
+    tech: ["Figma"],
     img: bitesLogo,
     year: 2023,
     live: "#",
     repo: "na",
   },
-  {
-    id: "grups",
-    title: "Grups",
-    short: "Social platform for college students in Indonesia",
-    description: "Longer description here...",
-    tech: ["React", "Node", "Material UI"],
-    img: "na",
-    year: 2022,
-    live: "#",
-    repo: "na",
-  },
+  // {
+  //   id: "grups",
+  //   title: "Grups",
+  //   short: "Social platform for college students in Indonesia",
+  //   description: "Longer description here...",
+  //   tech: ["React", "Node", "Material UI"],
+  //   img: "na",
+  //   year: 2022,
+  //   live: "#",
+  //   repo: "na",
+  // },
 ];
 
 export default function RightPanel() {
@@ -74,17 +76,22 @@ export default function RightPanel() {
             >
               I'm a Computer Science student in my 5th semester at BINUS
               University. I started coding when I was 16, making small games and
-              websites. From then on, I never stopped. I've grown from small
-              passion projects into building full-stack and backend systems.
-              Modeling and optimizing data with MongoDB and MySQL, and packaging
-              with Docker for deployment.
+              websites. From then on, I never stopped. What began as small
+              passion projects has grown into building end-to-end web
+              applications and backend services. Modeling and optimizing data
+              with <span className="text-fg">MongoDB</span> and{" "}
+              <span className="text-fg">MySQL</span>, packaging and deploying
+              via Docker.
             </p>
 
             <p className="text-muted leading-relaxed">
-              I’m comfortable with Python, JavaScript, C++, and C#, and I enjoy
-              exploring new tools whenever a problem demands them. I’m driven by
-              building clean solutions to problems and eager to contribute that
-              drive and experience in internships and collaborative projects.
+              I’m comfortable with <span className="text-fg">Python</span>,{" "}
+              <span className="text-fg">JavaScript</span>,{" "}
+              <span className="text-fg">C++</span>, and{" "}
+              <span className="text-fg">C#</span>. I enjoy exploring new tools
+              whenever a problem demands them. I’m driven by building clean
+              solutions to problems and eager to thrust that drive and
+              experience into internships and collaborative projects.
             </p>
           </section>
 

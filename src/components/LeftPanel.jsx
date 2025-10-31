@@ -166,14 +166,13 @@ export default function LeftPanel() {
             style={{
               border: "1px solid rgba(156, 163, 175, 0.5)",
               padding: "10px 16px",
-              marginTop: "10px",
               borderRadius: "4px",
               fontSize: "12px",
-              color: cvHovered ? "black" : "var(--fg)",
-              backgroundColor: cvHovered ? "white" : "transparent",
+              color: cvHovered ? "var(--fg)" : "black",
+              backgroundColor: cvHovered ? "transparent" : "white",
               textDecoration: "none",
               transition: "all 0.5s ease",
-              fontWeight: "500",
+              fontWeight: "600",
             }}
           >
             VIEW CV
