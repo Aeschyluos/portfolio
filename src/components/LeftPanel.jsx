@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Name from "./Name";
 import GithubIcon from "../assets/GithubIcon.png";
 import EmailIcon from "../assets/EmailIcon.png";
-import CVIcon from "../assets/CVIcon.png";
 import LinkedinLogo from "../assets/LinkedinLogo.jpg";
 
 export default function LeftPanel() {
@@ -10,7 +9,11 @@ export default function LeftPanel() {
   const [cvHovered, setCvHovered] = useState(false);
   const githubLink = "https://github.com/aeschyluos";
   const email = "kharonpratama@gmail.com";
-  const resume = "";
+  const resume =
+    "https://drive.google.com/file/d/1xlMQuT_6p52FlcMpr_yfB-Qj5kpMnVdc/view?usp=sharing";
+
+  const linkedinLink =
+    "https://www.linkedin.com/in/kharon-putra-pratama-0667ab36a";
 
   const navItems = [
     { id: "about", label: "About" },
@@ -144,6 +147,27 @@ export default function LeftPanel() {
             <img
               src={EmailIcon}
               alt="Email"
+              style={{
+                width: "32px",
+                height: "32px",
+                marginRight: "2rem",
+                maxWidth: "none",
+                display: "block",
+                filter: "invert(100%) brightness(200%)",
+              }}
+              className="object-contain hover:cursor-pointer hover:scale-105 "
+            />
+          </a>
+
+          <a
+            href={linkedinLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block p-0"
+          >
+            <img
+              src={LinkedinLogo}
+              alt="Linkedin"
               style={{
                 width: "32px",
                 height: "32px",

@@ -1,48 +1,21 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 export default function AnimatedBG() {
-  const lights = [
-    {
-      left: "6%",
-      top: "10%",
-      size: "260px",
-      tx: "800px",
-      ty: "-400px",
-      dur: "9s",
-      delay: "-2s",
+  // Generate random lights on component mount
+  const lights = useMemo(() => {
+    const generateRandomLight = () => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      size: `${Math.random() * 100 + 80}px`, // 80-180px
+      tx: `${(Math.random() - 0.5) * 1200}px`, // -600 to 600px
+      ty: `${(Math.random() - 0.5) * 1200}px`, // -600 to 600px
+      dur: `${Math.random() * 8 + 7}s`, // 7-15s
+      delay: `${Math.random() * -10}s`, // 0 to -10s
       color: "255, 255, 255",
-    },
-    {
-      left: "26%",
-      top: "66%",
-      size: "200px",
-      tx: "-600px",
-      ty: "500px",
-      dur: "8s",
-      delay: "-6s",
-      color: "255, 255, 255",
-    },
-    {
-      left: "72%",
-      top: "60%",
-      size: "140px",
-      tx: "500px",
-      ty: "800px",
-      dur: "10s",
-      delay: "-4s",
-      color: "255, 255, 255",
-    },
-    {
-      left: "80%",
-      top: "8%",
-      size: "180px",
-      tx: "300px",
-      ty: "-200px",
-      dur: "11s",
-      delay: "-3s",
-      color: "255, 255, 255",
-    },
-  ];
+    });
+
+    return Array.from({ length: 8 }, generateRandomLight);
+  }, []);
 
   return (
     <>

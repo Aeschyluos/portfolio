@@ -1,7 +1,7 @@
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import ProjectModal from "./ProjectModal";
+import SkillCard from "./SkillCard";
+
 import bitesLogo from "../assets/biteslogo.png";
 
 const PROJECTS = [
@@ -22,7 +22,7 @@ const PROJECTS = [
     title: "BiTEs",
     short: "Online food delivery application centralized in Binus",
     description:
-      "A Figma prototype for an in-campus/near-campus short-distance food delivery app targeting BINUS students.",
+      "An imaginary application for in-campus/near-campus short-distance food delivery app targeting BINUS students.",
     tech: ["Figma"],
     img: bitesLogo,
     year: 2023,
@@ -41,6 +41,75 @@ const PROJECTS = [
   //   repo: "na",
   // },
 ];
+
+const SKILLS = {
+  Languages: [
+    {
+      name: "Python",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    },
+    {
+      name: "C",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+    },
+    {
+      name: "Java",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    },
+    {
+      name: "JavaScript",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    },
+  ],
+  "Web Development": [
+    {
+      name: "React",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    },
+    {
+      name: "Next.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+      invert: true,
+    },
+    {
+      name: "Vite",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg",
+    },
+    {
+      name: "Tailwind",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+    },
+  ],
+  Data: [
+    {
+      name: "MongoDB",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    },
+    {
+      name: "MySQL",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    },
+    {
+      name: "R",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg",
+    },
+  ],
+  Tools: [
+    {
+      name: "Docker",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    },
+    {
+      name: "GitHub",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+      invert: true,
+    },
+    {
+      name: "Figma",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+    },
+  ],
+};
 
 export default function RightPanel() {
   const [projects] = useState(PROJECTS);
@@ -86,9 +155,8 @@ export default function RightPanel() {
 
             <p className="text-muted leading-relaxed">
               I’m comfortable with <span className="text-fg">Python</span>,{" "}
-              <span className="text-fg">JavaScript</span>,{" "}
-              <span className="text-fg">C++</span>, and{" "}
-              <span className="text-fg">C#</span>. I enjoy exploring new tools
+              <span className="text-fg">JavaScript</span>, and{" "}
+              <span className="text-fg">C</span>. I enjoy exploring new tools
               whenever a problem demands them. I’m driven by building clean
               solutions to problems and eager to thrust that drive and
               experience into internships and collaborative projects.
@@ -144,13 +212,30 @@ export default function RightPanel() {
               style={{
                 opacity: "0.4",
               }}
-            ></hr>
-            <div className="mt-4 space-y-4 ">
-              <p className="font-semibold font-geist text-sm ">Something</p>
-              <p className="mt-1 text-xs text-muted">
-                Description for this role to demonstrate scrolling.
-              </p>
-            </div>
+            />
+
+            {Object.entries(SKILLS).map(([category, skills]) => (
+              <div key={category} style={{ marginTop: "2rem" }}>
+                <h3
+                  className="text-sm font-semibold text-muted"
+                  style={{ marginBottom: "1rem" }}
+                >
+                  {category}
+                </h3>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns:
+                      "repeat(auto-fill, minmax(100px, 1fr))",
+                    gap: "1rem",
+                  }}
+                >
+                  {skills.map((skill) => (
+                    <SkillCard key={skill.name} skill={skill} />
+                  ))}
+                </div>
+              </div>
+            ))}
           </section>
         </div>
       </div>
