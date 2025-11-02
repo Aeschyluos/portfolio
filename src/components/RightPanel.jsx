@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import SkillCard from "./SkillCard";
-
+import Footer from "./Footer";
 import bitesLogo from "../assets/biteslogo.png";
 
 const PROJECTS = [
@@ -119,7 +119,6 @@ export default function RightPanel() {
       <div
         className="w-full px-8 py-6 lg:py-8"
         style={{
-          marginBottom: "30rem",
           marginTop: "3rem",
         }}
       >
@@ -237,6 +236,8 @@ export default function RightPanel() {
               </div>
             ))}
           </section>
+
+          <Footer />
         </div>
       </div>
     </div>

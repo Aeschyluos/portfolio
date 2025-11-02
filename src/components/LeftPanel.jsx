@@ -71,7 +71,7 @@ export default function LeftPanel() {
             marginBottom: "2rem",
           }}
         >
-          Looking for internships.
+          I'm looking for <span className="text-fg">internships</span>.
         </p>
 
         <nav
@@ -103,7 +103,7 @@ export default function LeftPanel() {
                     className="group-hover:opacity-60"
                   />
                   <span
-                    className="font-geist transition-all duration-300"
+                    className="transition-all duration-300"
                     style={{
                       color: isActive ? "white" : "rgba(156, 163, 175, 1)",
                       fontWeight: isActive ? "600" : "400",
